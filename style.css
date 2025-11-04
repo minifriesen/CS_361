@@ -1,0 +1,374 @@
+/* ---------------- VARIABLES ---------------- */
+:root {
+  --bg: #f4f7fb;
+  --card: #f6faff;
+  --accent: #563cb4;
+  --muted: #6b7280;
+  --danger: #851313;
+  --hover: #a372ad;
+}
+
+/* ---------------- GLOBAL ---------------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:fantasy;
+  color: #0b1b2b;
+  min-height: 100vh;
+
+  /* Background image */
+  background-image: url('1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+/* ---------------- NAVIGATION ---------------- */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: #a18bc9;
+  border-bottom: 1px solid #e6eef7;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 0;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  background-color: var(--hover);
+  color: #fff;
+}
+
+.nav-user {
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+
+/* ---------------- LAYOUT ---------------- */
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.screen {
+  width: 100%;
+  max-width: 720px;
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* ---------------- CARDS ---------------- */
+.card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(12, 38, 63, 0.06);
+}
+
+h1,
+h2 {
+  margin: 0.25rem 0;
+}
+
+.lead {
+  color: var(--muted);
+}
+
+.btn-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* ---------------- BUTTONS ---------------- */
+button {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  padding: 0.45rem 0.7rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--hover);
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid #dfeefc;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+.edit-btn {
+  background: #255c69;  
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.edit-btn:hover {
+  background: var(--hover);  
+}
+
+/* ---------------- INPUTS ---------------- */
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d6dce6;
+  border-radius: 6px;
+  margin-top: 0.25rem;
+}
+
+/* ---------------- LISTS ---------------- */
+.lists {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.list-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f9fdff);
+  border: 1px solid #e6f0f8;
+}
+
+.list-card .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-card .title {
+  font-weight: 600;
+}
+
+.list-card .cat {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.list-card .right {
+  display: flex;
+  gap: 0.4rem;
+}
+
+/* ---------------- CATEGORY LIST ---------------- */
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.category-item {
+  padding: 0.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.category-item.active {
+  background: var(--card);
+  color: #a372ad;
+  font-weight: 600;
+}
+
+.category-btn {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  background: #f3f9ff;
+  border: 1px solid #e6f5ff;
+  cursor: pointer;
+}
+
+/* ---------------- ADD CATEGORY ---------------- */
+.add-category {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.add-category input {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid #ccd5e0;
+  border-radius: 6px;
+}
+
+.add-category button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.add-cat-btn:hover {
+  background: var(--hover);
+}
+
+/* ---------------- RECOMMENDED BUTTONS ---------------- */
+.rec-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.rec-btn {
+  background: #d1a9da;
+  border: 1px solid #e5c1ec;
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  color: #0b1b2b;
+}
+
+.rec-btn:hover {
+  background: var(--hover);
+  color: #fff;
+}
+
+/* ---------------- MODALS ---------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.2s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.3rem 0 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-actions {
+  justify-content: flex-end;
+}
+
+/* ---------------- MICRO TEXT ---------------- */
+.micro {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.msg {
+  color: var(--danger);
+  margin-top: 0.5rem;
+}
+
+/* ---------------- LIST HOME LAYOUT ---------------- */
+.list-home-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.sidebar {
+  background: var(--card);
+  border: 1px solid #dfe6ee;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h3 {
+  margin: 0.5rem 0;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccd5e0;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.main-content {
+  min-height: 500px;
+}
