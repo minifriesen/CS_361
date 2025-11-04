@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My To-Do List App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="top-nav" aria-label="Main navigation">
+    <div class="nav-left">
+      <button id="nav-welcome" class="nav-btn">Welcome</button>
+      <button id="nav-home" class="nav-btn" hidden>Home</button>
+      <button id="nav-about" class="nav-btn" hidden>About</button>
+    </div>
+    <div class="nav-right">
+      <span id="nav-user" class="nav-user" hidden></span>
+      <button id="nav-logout" class="nav-btn" hidden>Logout</button>
+    </div>
+  </nav>
+
+  <main id="root">
+    <!-- 1. Welcome screen -->
+    <section id="screen-welcome" class="screen active">
+      <div class="card centered">
+        <h1>My To-Do List App</h1>
+        <div> </div>
+        <div class="lead">Already a User?</div>
+        <div class="btn-row">
+          <button id="btn-get-started">Login</button>
+        </div>
+        <div> </div>
+        <div class="lead">New User?</div>
+        <div class="btn-row">
+          <button id="btn-go-signup">Sign up</button>
+        </div>
+        <div> </div>
+        <div> </div>
+        <div>Stay on top of your tasks with ease!</div>
+        <div>Catagorize your lists for better organization!</div>
+        <div> </div>
+      </div>
+    </section>
+
+    <!-- 2. Signup screen -->
+    <section id="screen-signup" class="screen hidden">
+      <div class="card">
+        <h2>Sign up</h2>
+        <label>Username
+          <input id="su-username" />
+        </label>
+        <label>Password
+          <input id="su-password" type="password" />
+        </label>
+        <div class="btn-row">
+          <button id="btn-create-account">Submit</button>
+          <button id="btn-back-from-signup">Back</button>
+        </div>
+        <p id="su-msg" class="msg"></p>
+      </div>
+    </section>
+
+    <!-- 3. Login screen -->
+    <section id="screen-login" class="screen hidden">
+      <div class="card">
+        <h2>Login</h2>
+        <label>Username
+          <input id="li-username" />
+        </label>
+        <label>Password
+          <input id="li-password" type="password" />
+        </label>
+        <div class="btn-row">
+          <button id="btn-login">Submit</button>
+        </div>
+        <p id="li-msg" class="msg">Test account: <strong>test / 1234</strong></p>
+      </div>
+    </section>
+
+    <!-- 4. List Home -->
+    <section id="screen-home" class="screen hidden">
+      <div class="list-home-grid">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+          <h3>Search</h3>
+          <input id="search-input" type="text" placeholder="Search lists..." />
+
+          <h3>Categories</h3>
+          <ul id="category-list-sidebar" class="category-list">
+            <li class="category-item active" data-cat="All">All</li>
+          </ul>
+
+          <div class="add-category">
+            <button id="btn-open-category-modal" class="add-cat-btn">Add a Category...</button>
+          </div>
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+        <section class="main-content card">
+          <h2 id="lists-heading">Your Lists</h2>
+
+          <div class="create-area">
+            <label>
+              <input id="create-name" placeholder="Add list..." />
+            </label>
+            <div class="btn-row">
+              <button id="btn-create-list">Create List</button>
+            </div>
+          </div>
+
+          <div id="lists-area">
+            <!-- <h3 id="lists-heading">Your Lists</h3> -->
+            <div id="lists-container" class="lists"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+        <!-- list of lists (wireframe: Select List) -->
+        <div id="lists-area">
+          <div id="lists-container" class="lists"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Select Category screen -->
+    <section id="screen-category" class="screen hidden">
+      <div class="card">
+        <h2>Select or Add Category</h2>
+        <div id="category-list" class="category-list"></div>
+
+        <label>Add new category
+          <input id="new-category-input" placeholder="e.g., Fitness" />
+        </label>
+        <div class="btn-row">
+          <button id="btn-add-category">Add</button>
+          <button id="btn-back-to-home-from-cat">Back</button>
+        </div>
+        <p class="micro">Selecting a category will pre-fill it on the Create List screen.</p>
+      </div>
+    </section>
+
+    <!-- 6. Select List screen (shows single list and tasks) -->
+    <section id="screen-list" class="screen hidden">
+      <div class="card">
+        <button id="btn-back-to-home-from-list" class="ghost">← Back to Lists</button>
+        <h2 id="list-title">List</h2>
+
+        <div class="list-meta">
+          <div><strong>Category:</strong> <span id="list-category"></span></div>
+        </div>
+
+        <div id="task-area" class="task-area">
+          <label>New task
+            <input id="new-task-text" placeholder="Add a task..." />
+          </label>
+          <div class="btn-row">
+            <button id="btn-add-task">Add Task</button>
+          </div>
+          <ul id="tasks-ul" class="tasks"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. About/Info -->
+    <section id="screen-about" class="screen hidden">
+      <div class="card">
+        <h2>About</h2>
+        <div>This app is designed to help you create and categorize your to-do lists</div>
+        <ul>
+          <li>To add a list or category hit the corresponding text above or below your lists/categories</li>
+          <li>To remove/edit a list or task hit the corresponding buttons to the right of the task/list</li>
+          <li>If you are having some trouble thinking of categories for your lists, some example categories are provided!</li>
+        </ul>
+        <div>Questions? Contact us at to-dolistapp.help@gmail.com</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- simple template for a list card -->
+  <template id="tpl-list-card">
+    <div class="list-card">
+      <div class="left">
+        <div class="title"></div>
+        <div class="cat micro"></div>
+      </div>
+      <div class="right">
+        <button class="open-btn">Open</button>
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn danger">Delete</button>
+      </div>
+    </div>
+  </template>
+
+<!-- Add Category Modal -->
+<div id="category-modal" class="modal hidden" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <h3>Add a Category</h3>
+    <label>Category name:
+      <input id="modal-category-input" placeholder="Type category name" />
+    </label>
+
+    <h4>Recommended:</h4>
+    <div class="rec-list">
+      <button class="rec-btn">To Do</button>
+      <button class="rec-btn">Important</button>
+      <button class="rec-btn">School</button>
+      <button class="rec-btn">Work</button>
+      <button class="rec-btn">Errands</button>
+      <button class="rec-btn">Chores</button>
+    </div>
+
+    <div class="btn-row modal-actions">
+      <button id="modal-submit-category">Submit</button>
+      <button id="modal-cancel-category" class="ghost">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
